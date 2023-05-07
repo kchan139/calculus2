@@ -1,0 +1,51 @@
+\documentclass[twoside]{hcmut-report}
+\usepackage{matlab-prettifier}
+\parindent 0pt
+
+% Sub-preambles
+% https://github.com/MartinScharrer/standalone
+% colors
+% \definecolor{myblue}{HTML}{4472C4}
+
+% Encodings
+\usepackage{gensymb,textcomp}
+
+% Better tables
+% Wide tables go to https://tex.stackexchange.com/q/332902
+\usepackage{array,multicol,multirow,siunitx,tabularx}
+
+% Better enum
+\usepackage{enumitem}
+
+% Graphics
+\usepackage{caption,float}
+
+% Configurations
+\title{Calculus 2 Assignment}
+\reporttype{Instructor: Dau The Phiet}
+
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+
+% Custom commands
+\newcommand*\mean[1]{\bar{#1}}
+
+\begin{document}
+\coverpage%
+
+\tableofcontents
+\clearpage
+
+\input{Sections/section1.tex}
+
+\input{Sections/section2.tex}
+
+\input{Sections/section3.tex}
+
+% References
+\newpage
+\bibliographystyle{plain}
+\bibliography{refs/books.bib}
+\nocite{*}
+
+\end{document}
