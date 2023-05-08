@@ -14,33 +14,32 @@
 
 \textbf{Theory: }
 
-To find the maximum and minimum value of $f(x,y) = 2x^2 - 2xy + y^3$ subject to the single constraint $ g(x,y) = x^2 + y^2 = 4 $. We need to use the Lagrange multiplier method.\\
+To find the maximum and minimum value of $f(x,y) = 2x^2 - 2xy + y^3$ subject to the single constraint $ g(x,y) = x^2 + y^2 = 4 $, we need to use the Lagrange multiplier method.\\
 
-Lagrange multiplier method is a technique for finding a maximum or minimum values of a multivariable function $f(x,y,z, ...)$ subject to a constraint of the form $g(x,y,z,...)$.\\
+Lagrange multiplier method is a technique for finding maximum or minimum values of some multivariable function $f(x,y,z, ...)$ subject to a constraint of the form $g(x,y,z,...)$.\\
 
-For example, a function of 2 variables can be used to explain the method. We get started by finding the extreme values of $f(x,y)$ subject to a constraint $g(x,y)$. In other words, we find the points satisfying the condition that points $(x,y)$ lie on the level curve $g(x,y)=k$.  The figure below shows this curve together with several level curves of $f(x,y)$. These have the equations $f(x,y) = c$  where  $c=7,8,9,10,11$.
+For example, a function of 2 variables can be used to explain the method. We get started by finding the extreme values of $f(x,y)$ subject to a constraint $g(x,y)$. In other words, we find the points satisfying the condition that points $(x,y)$ lie on the level curve $g(x,y)=k$.  The figure below shows this curve together with several level curves of $f(x,y)$. These have the equations $f(x,y) = c$  where  $c \in \{7,8,9,10,11\}$.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=8cm]{graphics/2a.png}
+  \includegraphics[width=9cm]{graphics/2a.png}
   % \caption{}
 \end{figure}
 
-The graph show that the maximum value occupied at the point where $f(x,y)=10$ intersecting $g(x,y)=k$. Analyzing the graph, we can easily see the fact that the maximum value appears when those 2 functions touch each other and they have the same tangent line. Thus the normal lines at the point $(x_0,y_0)$ where they touch are identical. So the gradient vectors are parallel; Therefore, $\nabla f(x_0,y_0) = \lambda g(x_0,y_0)$ where $\nabla$ is a scalar. \\
+The graph illustrates that the maximum value occupied at the point where $f(x,y)=10$ intersecting $g(x,y)=k$. Analyzing the graph, we can easily see the fact that the maximum value appears when those 2 functions touch each other and they have the same tangent line. Thus the normal lines at the point of intersection $(x_0,y_0)$ are identical. So the gradient vectors are parallel; Therefore, $\nabla f(x_0,y_0) = \lambda g(x_0,y_0)$ where $\lambda$ is a scalar. \\[6pt]
 For some scalar $\lambda$. The scalar parameter is called a Lagrange multiplier. The procedure based on the above equation is as follows. We have from the chain rule,
 $$ \dfrac{df(x, y)}{dxdy} = \dfrac{\partial f(x, y)}{\partial x} dx + \dfrac{\partial f(x, y)}{\partial y} = 0,\quad \dfrac{dg(x, y)}{dxdy} = \dfrac{\partial g(x, y)}{\partial x} dx + \dfrac{\partial g(x, y)}{\partial y} $$ \\[6pt]
-Multiplying the second equation by and add to first equation yield:
+Multiplying the second equation by $\lambda$ and then add to first equation yield:
 $$ \left( \dfrac{\partial f(x, y)}{\partial x} + \dfrac{\partial g(x, y)}{\partial x} \right)dx + \left( \dfrac{\partial f(x, y)}{\partial y} + \dfrac{\partial g(x, y)}{\partial y} \right)dy = 0 $$\\[6pt]
 Then we can rewrite the expression as the vector equation:
-$$ \nabla f(x_0, y_0) =\lambda \nabla g(x_0, y_0) $$\\[6pt]
+$$ \nabla f(x_0, y_0) =\lambda \nabla g(x_0, y_0) $$
 Thus, the maximum and minimum values of $f(x,y)$ subject to the constraint $g(x_0,y_0)=0$  can be found by solving the following set of equations.
 $$ \dfrac{\partial f(x, y)}{\partial x} + \dfrac{\partial g(x, y)}{\partial x} = 0 $$
 $$ \dfrac{\partial f(x, y)}{\partial y} + \dfrac{\partial g(x, y)}{\partial y} = 0 $$
 $$ g(x, y) = 0 $$\\[6pt]
-Then what is the purpose of the Lagrange multiplier method? The answer is that the purpose of the Lagrange multiplier method is to optimize a function subject to certain constraints. It is commonly used in fields such as economics, physics, and engineering to solve optimization problems with constraints.\\[6pt]
+The Lagrange multiplier method allows us to find the values of the variables that optimize the objective function subject to the given constraints. This technique is widely used in various fields of mathematics, physics, and engineering, particularly in optimization problems involving constraints.\\[6pt]
 
-\textbf{Solving Problem using Lagrange multiplier method:}\\
-We all know that the formula $\nabla f(x_0, y_0) = \lambda \nabla g(x_0, y_0) $ will be used to solve this problem. But first, we need to define which $f(x, y)$ and $g(x, y)$ are.
+\textbf{Solving Problem using Lagrange multiplier method:}\\[6pt]
 $$ Let \quad  f(x,y)= z = 2x^2-2xy+y^3 \quad and \quad g(x,y)=x^2 + y^2- 4 $$
 Therefore, we obtain a system of equations:
 \[
@@ -51,13 +50,13 @@ Therefore, we obtain a system of equations:
 \end{cases}
 \]
 
-Solve the equation $(1)$ with respect to $x$, we get:
+Solve the equation $(1)$ for $x$, we get:
 $$ x = \dfrac{y}{2 + \lambda} $$
 
-Take that value of $x$, we put it into the equation $(2)$:
+Substitute $x$ in the equation $(2)$:
 $$ 3y^2 + 2 \lambda y - \dfrac{2y}{2 + \lambda} = 0 \quad (4)$$
 
-Then we substitute $x$ into the equation $(3)$, right here we solve for $y$:
+Then we substitute $x$ into the equation $(3)$ and solve for $y$:
 \begin{align*}
   \dfrac{y^2}{(2 + \lambda)^2} + y^2 &= 4 \\
   y^2 &= \dfrac{4}{1 + \dfrac{1}{(2 + \lambda)^2}} \\
@@ -93,7 +92,7 @@ With $\lambda =-3.13172$:
 $$ y = -\dfrac{2}{ \sqrt{1 + \dfrac{1}{(2 + \lambda)^2}} } = -\dfrac{2}{ \sqrt{1 + \dfrac{1}{(2 -3.13172)^2}} } = 1.49874$$
 $$ x = \dfrac{y}{2 + \lambda} = \dfrac{1.49874}{2 -3.13172} = -1.3243 $$\\[6pt]
 
-After obtaining all value of $x, y$ in each case of, we evaluate $f$ at all the point $(x,y)$. The largest of those values is the maximum value of $f$; the smallest is the minimum value of $f$.
+After obtaining all value of $x, y$ in each case of $\lambda$, we evaluate $f$ at all the point $(x,y)$. The largest of those values is the maximum value of $f$; the smallest is the minimum value of $f$.
 \begin{align*}
   f(-0.38199,-1.96318)
     &=2(-0.38199)^2-2(-0.38199)(-1.96318)+(-1.96318)^3\\
