@@ -94,7 +94,7 @@
 %\setcounter{secnumdepth}{3}
 %\setcounter{tocdepth}{3}
 
-\AtBeginDocument{\renewcommand*\bibname{References}}
+\AtBeginDocument{\renewcommand*\bibname{Bibliography}}
 
 \hypersetup{
   colorlinks=true,

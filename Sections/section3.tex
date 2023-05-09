@@ -1,6 +1,6 @@
 %% ============ SECTION 3 ============ %%
 \newpage
-\section{Problem 3.}
+\section{ Problem 3.}
 \textit{
   Let $C$ be the intersection of the surface $x^2 + y^2 + z^2 = 9$ and the cylinder $x^2 + 3y^2 = 4,\quad z > 0$.
   \begin{enumerate}[label=(\alph*)]
@@ -235,5 +235,10 @@ Therefore, we can implement this MATLAB code:
 
 Code explanation:
 \begin{itemize}
-    \item \verb!this = to_do();! - TO DO
+    \item \texttt{\color{mygreen}l = sqrt(x.$\caret$2 + y.$\caret$2 + z.$\caret$2)} - calculates the length of the unit tangent vector at each point on the curve.
+    \item \texttt{\color{mygreen}m = -2*sin(t)./l} - calculates the x-component of the unit tangent vector at each point on the curve.
+    \item \texttt{\color{mygreen}n = (2/sqrt(3).*cos(t))./l} - calculates the y-component of the unit tangent vector at each point on the curve.
+    \item \texttt{\color{mygreen}p = (8.*cos(t).*sin(t))./sqrt(3.*(8.*sin(t).$\caret$2 + 15))./l} - calculates the z-component of the unit tangent vector at each point on the curve.
+    \item \texttt{\color{mygreen}quiver3(x\_t, y\_t, z\_t, m, n, p)} - plots the unit tangent vector at each point on the curve as an arrow.
   \end{itemize}
+  %\texttt{\color{mygreen}}

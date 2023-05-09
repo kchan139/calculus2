@@ -5,7 +5,8 @@
 % Sub-preambles
 % https://github.com/MartinScharrer/standalone
 % colors
-% \definecolor{myblue}{HTML}{4472C4}
+\definecolor{mygreen}{HTML}{5CAA5C}
+\DeclareMathOperator\caret{\raisebox{1ex}{$\scriptstyle\wedge$}}
 
 % Encodings
 \usepackage{gensymb,textcomp}
@@ -24,8 +25,10 @@
 \title{Calculus 2 Assignment}
 \reporttype{Instructor: Dau The Phiet}
 
+\usepackage{tocloft}
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\renewcommand{\cftsecaftersnum}{. }
 
 % Custom commands
 \newcommand*\mean[1]{\bar{#1}}

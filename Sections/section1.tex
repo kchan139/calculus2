@@ -1,7 +1,7 @@
 %% ============ SECTION 1 ============ %%
-\section{Problem 1.}
+\section{ Problem 1.}
 \textit{
-  Let $ z = f(x) = x^4 - 2x^2 - y^3 + 3y $.
+  Let $ z = f(x) = x^2 + 2y^2 + 3xy^3 - y^3 $.
   \begin{enumerate}[label=(\alph*)]
     \item Draw the graph of the function.
     \item Draw the contour plot of the function. Point out the local extreme
@@ -42,6 +42,63 @@ Finding the local extreme values of the function $f(x,y)$:
       \item Find all second derivatives of $f(x_0,y_0)$.
       \item Identify by the Second Derivative Test $ D(a,b) = f_{xx}(a,b) f_{yy}(a,b) - [f_{xy}(a,b)]^2 $
     \end{itemize}
+\end{itemize}
+
+\vspace*{1cm}
+
+\textbf {Hand-writing solution: }\\[6pt]
+Find the local extreme values of the function $f(x,y) = x^2 + 2y^2 + 3xy^3 - y^3 $:\\[6pt]
+Firstly, we have to determine critical points for the given function $f(x,y)$ by finding the partial derivatives with respect to $x$ and to $y$ and set each partial derivative equal to zero.
+$$ f_x = 2x + 3y^3 $$
+$$ f_y = 4y + 9xy^2 - 3y^2 $$
+We then have the system of equations:
+\[
+\begin{cases}
+  2x + 3y^3 &= 0 \qquad (1) \\
+  4y + 9xy^2 - 3y^2 &= 0 \qquad (2)
+\end{cases}
+\]
+Solve the equation (1) for $x$:
+$$ x = -\dfrac{3}{2} y^3 \qquad (4)$$
+Substitute that value to the equation (2):
+$$ 4y + 9\left( -\dfrac{3}{2} y^3 \right)y^2 - 3y^2 = 0 $$
+Simplify the above equation:
+$$ y\left( -\dfrac{27}{2}y^4 - 3y + 4 \right) = 0 $$
+Solve the equation for $y$ and substitute the value to the equation (4):
+\begin{align*}
+  y = 0 &\Rightarrow x = 0 \\
+  y = 0.629 &\Rightarrow x = -0.373 \\
+  y = -0.833 &\Rightarrow x = 0.867 
+\end{align*}
+Thus, we have three critical points: $(0,0), (-0.373, 0.629), (0.867, -0.833)$.\\[6pt]
+Next step is to consider $D(x_0,y_0)$ by finding all second derivatives of $f(x_0,y_0)$ and identify by the Second Derivative Test 
+$$ D(x_0,y_0) = f_{xx}(x_0,y_0) f_{yy}(x_0,y_0) - [f_{xy}(x_0,y_0)]^2 $$
+We have:
+\begin{align*}
+  f_{xx} &= 2 \\
+  f_{yy} &= 4 + 18xy - 6y \\
+  f_{xy} &= 9y^2
+\end{align*}
+Therefore:
+$$ D(x_0,y_0) = -81y^4+36xy-12y+8 \qquad (5)$$
+Then, we substitute 3 critical points into equation (5) in turn.
+\begin{itemize}
+  \item At $ (0,0) $:
+    \begin{itemize}
+      \item $ D(0,0) = 8 > 0 $
+      \item $ f_{yy}(0,0) = 2 > 0$
+    \end{itemize}
+    $\Rightarrow f(0,0)$ is a local minimum.
+  \item At $ (-0.373, 0.629) $:
+    \begin{itemize}
+      \item $ D(-0.373, 0.629) = -20.678 < 0 $
+    \end{itemize}
+    $\Rightarrow (-0.373, 0.629)$ is a saddle point of $f$.
+  \item At $ (0.867, -0.833) $  
+    \begin{itemize}
+      \item $ D(0.867, -0.833) = -46.993 < 0 $
+    \end{itemize}
+    $\Rightarrow (0.867, -0.833)$ is a saddle point of $f$.
 \end{itemize}
 
 \vspace*{1cm}
@@ -115,6 +172,22 @@ Finding the local extreme values of the function $f(x,y)$:
     end    
 \end{lstlisting}
 
+Code explanation: 
+\begin{itemize}
+  \item \texttt{\color{mygreen}syms x y z;} - declares symbolic variables x, y, and z to be used.
+  \item \texttt{\color{mygreen}z = x.$\caret$2 + 2*y.$\caret$2 + 3*x.*y.$\caret$3 - y.$\caret$3;} - defines a symbolic expression for z as a function of x and y.
+  \item \texttt{\color{mygreen}fx = diff(z,x,1);} - calculates the first partial derivative of z with respect to x and assigns it to the variable \texttt{\color{mygreen}fx}. Similar for \texttt{\color{mygreen}fy, fxx, fyy} and \texttt{\color{mygreen}fxy}.
+  \item \texttt{\color{mygreen}eqns = [ fx == 0, fy == 0];} - creates a system of equations eqns that must be solved simultaneously, which are the first-order partial derivative equations set to zero.
+  \item \texttt{\color{mygreen}vars = [x y];} - defines the variables to be solved for as x and y.
+  \item \texttt{\color{mygreen}[solx, soly] = vpasolve(eqns, vars);} - solves the system of equations eqns for the variables vars and returns the solutions in the vectors solx and soly.
+  \item \texttt{\color{mygreen}solx\_real = solx(imag(solx)==0);} - extracts the real parts of the solutions for solx and assigns them to solx\_real.
+  \item \texttt{\color{mygreen}disp(['z = f(x,y) = ', char(z)]);} - displays the symbolic expression for z as a function of x and y.
+  \item \texttt{\color{mygreen}for n=1:length(solx\_real)} - starts a loop over the number of real solutions found.
+  \item \texttt{\color{mygreen}fxx\_val = subs(fxx,[x,y],[solx\_real(n),soly\_real(n)]);} - substitutes the values of solx\_real(n) and soly\_real(n) into the symbolic expression for fxx and assigns the resulting value to fxx\_val.
+  \item \texttt{\color{mygreen}vpasolve();} - function is used to solve the system of equations eqns for the variables vars, which are x and y in this case.
+  \item \texttt{\color{mygreen}fprintf()} - displays the results of the calculations.
+\end{itemize}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{graphics/1a.jpg}
@@ -160,7 +233,16 @@ Finding the local extreme values of the function $f(x,y)$:
 
 Code explanation: 
 \begin{itemize}
-  \item \verb!this = to_do();! - TO DO
+  \item \texttt{\color{mygreen}meshgrid()} - generate a grid of x and y values to plot the surface and contour plots of the function.
+  \item \texttt{\color{mygreen}tiledlayout()} - create a tiled layout for plotting multiple figures in one window.
+  \item \texttt{\color{mygreen}nexttile()} - specify the location of the next plot in the tiled layout. 
+  \item \texttt{\color{mygreen}surf()} - create a surface plot of the function.
+  \item \texttt{\color{mygreen}colormap()} - set the colormap for the surface plot.
+  \item \texttt{\color{mygreen}title()} - add title to the plot
+  \item \texttt{\color{mygreen}contour()} - create a contour plot of the function. It takes x, y, and z matrices as input, and creates contour lines at different function values.
+  \item \texttt{\color{mygreen}hold on} - allow multiple plots to be overlaid on top of each other.
+  \item \texttt{\color{mygreen}for loop} - plot the location of the local extreme and saddle points on the contour plot.
+  \item \texttt{\color{mygreen}pbaspect()} - set the aspect ratio of the plot.
 \end{itemize}
 
 \vspace*{2cm}

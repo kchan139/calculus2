@@ -1,6 +1,6 @@
 %% ============ SECTION 2 ============ %%
 \newpage
-\section{Problem 2.}
+\section{ Problem 2.}
 \textit{
   Find the maximum and minimum values of $ z = 2x^2 - 2xy + y^3 $ subject to the single constraint $ x^2 + y^2 = 4 $.
   \begin{enumerate}[label=(\alph*)]
@@ -162,7 +162,9 @@ This MATLAB code demonstrates how to plot the contour of a function and a constr
 
 Code explanation:
 \begin{itemize}
-  \item \verb!this = to_do();! - TO DO
+  \item \texttt{\color{mygreen}theta = linspace(0, 2*pi, 100)} - create a 1x100 row vector $\theta$ of equally spaced values between 0 and 2$\pi$ radians with 100 elements.
+  \item \texttt{\color{mygreen}x\_circle = r*cos(theta)} - compute the x-coordinates of the circle using the $\cos$ function and $\theta$.
+  \item \texttt{\color{mygreen}y\_circle = r*sin(theta)} - compute the y-coordinates of the circle using the $\sin$ function and $\theta$.
 \end{itemize}
 
 \vspace*{2cm}
