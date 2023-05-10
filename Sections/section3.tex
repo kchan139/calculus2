@@ -16,7 +16,7 @@
 Suppose that a curve $C$ is defined by equation $y=f(x)$, where $f$ is continuous and $a \leq x \leq b$. We obtain a polygonal approximation to $C$ by dividing the interval $[a,b]$ into $n$ subintervals with endpoints $x_0,x_1,...,x_n$ and equal with $\Delta x$. If $y_i=f(x_i)$, and then the point $P_i(x,y)$ lies on $C$ and the polygon with vertices $P_0,P_1,...,P_n$, Illustrated in the below figure, is an approximation to $C$.\\[6pt]
 \begin{figure}[H]
   \centering
-  \includegraphics[width=12cm]{graphics/3_0.png}
+  \includegraphics[width=6cm]{graphics/3_0.png}
   % \caption{}
 \end{figure}
 The length $L$ of is approximately the length of this polygon and the approximation gets better as we let $n$ increase. Therefore we define the length $\mathbf{L}$ of the curve $C$ with equation $y=f(x)$, $a \leq x \leq b$, as the limit of the lengths of these inscribed polygons (if the limit exists):
@@ -35,7 +35,7 @@ $$ L = \int_{a}^{b} \sqrt{1^2 + \left[f'(x)\right]^2} dx  $$
 Then we have another assumption that $C$ can be described by the parametric equations $x=f(t)$ and $y=g(t)$, $\alpha \leq x \leq \beta$, where \vspace{0.2cm} $\dfrac{dx}{dt}=f'(t)>0$. This means that $C$ is traversed once, from left to right, as $t$ increased from $\alpha$ to $\beta$ and $f(\alpha)=a, f(\beta)=b$. We obtain:
 $$ L = \int_{a}^{b} \sqrt{1^2 + \left[f'(x)\right]^2} dx = \int_{\alpha}^{\beta} \sqrt{\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2} dx  $$
 
-The length of space curve is defined in exactly the same way. Suppose that the curve has the vector equation $r(t)=\langle f(t), g(t), h(t) \rangle$, $a\leq x\leq b$, or, equvalently, the parametric equations $x=f(t), y=g(t), z=h(t),$ where $f',g'$ and $h'$ are continuous. If the curve is traversed exactly once as t increases from $a$ to $b$, then it can be shown that its length is
+The length of space curve is defined in exactly the same way. Suppose that the curve has the vector equation $r(t)=\langle f(t), g(t), h(t) \rangle$, $a\leq x\leq b$, or, equivalently, the parametric equations $x=f(t), y=g(t), z=h(t),$ where $f',g'$ and $h'$ are continuous. If the curve is traversed exactly once as t increases from $a$ to $b$, then it can be shown that its length is
 $$ L = \int_{a}^{b} \sqrt{\left[f'(x)\right]^2 + \left[g'(x)\right]^2 + \left[h'(x)\right]^2} dx = \int_{\alpha}^{\beta} \sqrt{\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2 + \left(\dfrac{dz}{dt}\right)^2} dx  $$
 
 \vspace*{0.5cm}
@@ -157,28 +157,6 @@ The length of the curve $C$ is:
     &= \int_{0}^{2\pi}\sqrt{[-2\sin(t)]^2 + \left[\dfrac{2}{\sqrt{3}}\cos(t) \right]^2 + \left[\dfrac{8\sin(t)\cos(t)}{ 3(15+8\sin t)^2 }\right]^2} dt \\
     &= 10.3677
 \end{align*}
-
-
-
-Solving by MATLAB:\\
-
-\begin{lstlisting}[style=Matlab-editor]
-  % Calculate the length of the intersection curve C
-  func = @(x) sqrt((-2.*sin(x)).^2 + (2./sqrt(3).*cos(x)).^2 + (((8/3).*cos(x).*sin(x))./sqrt((8/3).*sin(x).^2 + 5)).^2);
-  
-  % Use the integral function to evaluate the integral of the integrand over the interval [0, 2pi]
-  Length = integral(func, 0, 2*pi);
-  
-  % Display the length of the curve C
-  fprintf('Length of the curve C is: ');
-  disp(Length);  
-\end{lstlisting}
-Result:
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=12cm]{graphics/3b.png}
-  \caption{The length of the curve $C$ by MATLAB}
-\end{figure}
 
 \textbf{ \texttt{c) At any given point $(x_0, y_0, z_0)$ belongs to the curve, draw the unit tangent vector} }\\[6pt]
 We have $(C)$:

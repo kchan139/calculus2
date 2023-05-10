@@ -194,6 +194,6 @@
     \MakeUppercase{\@reportplace, \@reporttime}
   \end{center}
 
-  \cleardoublepage
+  \clearpage
   \pagestyle{fancy}
 }
