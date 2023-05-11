@@ -16,13 +16,14 @@
 Suppose that a curve $C$ is defined by equation $y=f(x)$, where $f$ is continuous and $a \leq x \leq b$. We obtain a polygonal approximation to $C$ by dividing the interval $[a,b]$ into $n$ subintervals with endpoints $x_0,x_1,...,x_n$ and equal with $\Delta x$. If $y_i=f(x_i)$, and then the point $P_i(x,y)$ lies on $C$ and the polygon with vertices $P_0,P_1,...,P_n$, Illustrated in the below figure, is an approximation to $C$.\\[6pt]
 \begin{figure}[H]
   \centering
-  \includegraphics[width=6cm]{graphics/3_0.png}
+  \includegraphics[width=12cm]{graphics/3_0.png}
   % \caption{}
 \end{figure}
 The length $L$ of is approximately the length of this polygon and the approximation gets better as we let $n$ increase. Therefore we define the length $\mathbf{L}$ of the curve $C$ with equation $y=f(x)$, $a \leq x \leq b$, as the limit of the lengths of these inscribed polygons (if the limit exists):
 $$ L = \lim_{n \to \infty} \sum_{i = 1}^{n}  \left| P_{i-1} P_i \right| $$
 If we let $\Delta x_i=x_i-x_{i-1}$ and $\Delta y_i=y_i-y_{i-1}$, then
 $$ \left| P_{i-1} P_i \right| = \sqrt{(x_i-x_{i-1})^2 + (y_i-y_{i-1})^2} = \sqrt{(\Delta x)^2 + (\Delta y)^2} $$
+
 By applying \textbf{the Mean Value Theorem} to $f$ on the interval $[x_{i-1},x_i]$, we find that there exist a number $x_i*$ between $x_{i-1}$ and $x_i$ such that
 $$ f(x_i)-f(x_{i-1})=f(x)(x_i-x_{i-1})$$
 $$ \rightarrow \Delta y_i = f'(x_i)\Delta x $$
