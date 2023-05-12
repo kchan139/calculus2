@@ -1,5 +1,6 @@
-# calculus2
-# assignment_report
+# Calculus2
+# Assignment Report
+# HCMUT - HK222
 
 This assignment has allowed us to delve deeper into the concepts of Multivariable Calculus, including Partial Derivatives and Multiple Integrals.
 
