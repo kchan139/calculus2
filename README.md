@@ -1,2 +1,2 @@
-# Calculus2 - HK222
+# CALCULUS 2 - HK222
 Project Report
